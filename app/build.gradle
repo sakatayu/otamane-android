@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.fefeyo.otamanekai"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.0-rc02'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation 'androidx.browser:browser:1.0.0-rc02'
+    implementation 'androidx.cardview:cardview:1.0.0-rc02'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+    // Room
+    implementation 'androidx.room:room-runtime:2.0.0-rc01'
+    kapt 'androidx.room:room-compiler:2.0.0-rc01'
+    implementation "android.arch.persistence.room:rxjava2:2.0.0-rc01"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+    kapt "com.github.bumptech.glide:compiler:$versions.glide"
+
+    // Network
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$versions.retrofit"
+    implementation "com.squareup.okhttp3:okhttp:$versions.okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
+
+    // Parcel
+    implementation "nz.bradcampbell:paperparcel:$versions.parcel"
+    implementation "nz.bradcampbell:paperparcel-kotlin:$versions.parcel"
+
+    // Optional
+    kapt "nz.bradcampbell:paperparcel-compiler:$versions.parcel"
+
+    // ThreeTenAbp
+    implementation "com.jakewharton.threetenabp:threetenabp:$versions.three_ten_abp"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxandroid:$versions.rx_android"
+    implementation "io.reactivex.rxjava2:rxjava:$versions.rx_java"
+
+    // FloatingActionButtonSpeedDial
+    implementation "com.leinardi.android:speed-dial:$versions.fab_speed_dial"
+
+    // Skeleton
+    implementation "com.ethanhua:skeleton:$versions.skeleton"
+    implementation "io.supercharge:shimmerlayout:$versions.shimmer"
+
+    // material
+    implementation "com.google.android.material:material:$versions.material"
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha05'
+}

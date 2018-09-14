@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NavigationSampleApp</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    // ToolbarMenu
+    <string name="calendar_menu_label_insert">追加</string>
+
+    // NavigationMenu
+    <string name="main_manu_label_calendar">カレンダー</string>
+    <string name="main_menu_label_event">イベント</string>
+    <string name="main_menu_label_ticket">チケット</string>
+    <string name="main_menu_label_settings">設定</string>
+</resources>

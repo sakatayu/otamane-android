@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/calendar"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_date_range_white_24dp"
+        android:title="@string/main_manu_label_calendar" />
+
+    <item
+        android:id="@+id/event"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_event_available_white_24dp"
+        android:title="@string/main_menu_label_event"/>
+
+    <item
+        android:id="@+id/ticket"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_class_white_24dp"
+        android:title="@string/main_menu_label_ticket"/>
+
+    <item
+        android:id="@+id/settings"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:title="@string/main_menu_label_settings"/>
+</menu>
