@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_bottom_navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_bottom_navigation"
     app:startDestination="@id/calendarFragment">
 
     <fragment
@@ -19,17 +20,19 @@
         android:id="@+id/settingFragment"
         android:name="com.fefeyo.otamanekai.view.setting.SettingFragment"
         android:label="SettingFragment" />
-    <action android:id="@+id/to_calendar_fragment" app:destination="@id/calendarFragment" />
     <action
-        android:id="@+id/to_event_fragment"
+        android:id="@+id/action_to_calendar_fragment"
+        app:destination="@id/calendarFragment" />
+    <action
+        android:id="@+id/action_to_event_fragment"
         app:destination="@id/eventFragment"
         app:popUpTo="@+id/calendarFragment" />
     <action
-        android:id="@+id/to_ticket_fragment"
+        android:id="@+id/action_to_ticket_fragment"
         app:destination="@id/ticketFragment"
         app:popUpTo="@+id/calendarFragment" />
     <action
-        android:id="@+id/to_setting_fragment"
+        android:id="@+id/action_to_setting_fragment"
         app:destination="@id/settingFragment"
         app:popUpTo="@+id/calendarFragment" />
 </navigation>
