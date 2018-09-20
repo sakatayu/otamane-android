@@ -15,5 +15,10 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.fefeyo.otamanekai.view.register.RegisterFragment"
-        android:label="RegisterFragment" />
+        android:label="RegisterFragment" >
+        <argument
+            android:name="key_event_type_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
 </navigation>

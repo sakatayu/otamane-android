@@ -16,7 +16,7 @@
             app:titleTextColor="@color/white" />
 
         <fragment
-            android:id="@+id/navigation"
+            android:id="@+id/main_navigation"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
