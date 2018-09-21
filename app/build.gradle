@@ -24,6 +24,9 @@ android {
     dataBinding {
         enabled = true
     }
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
@@ -38,7 +41,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
     implementation 'androidx.core:core-ktx:1.0.0-rc02'
 
-    // Room
+    // ArchitectureComponents
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-rc01"
     implementation 'androidx.room:room-runtime:2.0.0-rc01'
     kapt 'androidx.room:room-compiler:2.0.0-rc01'
     implementation "android.arch.persistence.room:rxjava2:2.0.0-rc01"

@@ -9,16 +9,25 @@
         android:name="com.fefeyo.otamanekai.view.main.MainFragment"
         android:label="MainFragment" >
         <action
-            android:id="@+id/action_mainFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            android:id="@+id/action_mainFragment_to_chooseProductFragment"
+            app:destination="@id/chooseProductFragment" />
     </fragment>
     <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.fefeyo.otamanekai.view.register.RegisterFragment"
+        android:id="@+id/chooseProductFragment"
+        android:name="com.fefeyo.otamanekai.view.register.ChooseProductFragment"
         android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_chooseProductFragment_to_eventRegisterFragment"
+            app:destination="@id/eventRegisterFragment"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventRegisterFragment"
+        android:name="com.fefeyo.otamanekai.view.register.EventRegisterFragment"
+        android:label="EventRegisterFragment" >
         <argument
-            android:name="key_event_type_id"
-            android:defaultValue="-1"
-            app:argType="integer" />
+            android:name="product"
+            app:argType="reference" />
     </fragment>
 </navigation>

@@ -1,6 +1,7 @@
 package com.fefeyo.otamanekai.util
 
 import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
 fun ImageView.load(src: String) {

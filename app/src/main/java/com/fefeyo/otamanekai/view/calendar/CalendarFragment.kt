@@ -48,7 +48,7 @@ class CalendarFragment : Fragment() {
         when (item?.itemId) {
             R.id.insert -> {
                 Navigation.findNavController(activity!!, R.id.main_navigation)
-                        .navigate(R.id.action_mainFragment_to_registerFragment)
+                        .navigate(R.id.action_mainFragment_to_chooseProductFragment)
             }
         }
         return super.onOptionsItemSelected(item)

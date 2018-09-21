@@ -25,3 +25,9 @@ fun View.slideOutDown() {
             .onEnd { isVisible = false }
             .playOn(this)
 }
+
+fun View.click(callback: () -> Unit) {
+    setOnClickListener {
+        callback()
+    }
+}

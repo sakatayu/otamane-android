@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/sort"
+        android:title="@string/choose_product_label_sort"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_sort_white_24dp">
+        <menu>
+            <item
+                android:id="@+id/line"
+                android:title="@string/choose_product_label_triple"/>
+            <item
+                android:id="@+id/favorite"
+                android:title="@string/choose_product_label_favorite"/>
+            <item
+                android:id="@+id/register_num"
+                android:title="@string/choose_product_label_register_num"/>
+        </menu>
+    </item>
+</menu>

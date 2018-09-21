@@ -13,7 +13,8 @@
             android:background="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/white"
+            app:subtitleTextColor="@color/white"/>
 
         <fragment
             android:id="@+id/main_navigation"
