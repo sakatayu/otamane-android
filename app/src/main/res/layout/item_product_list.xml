@@ -17,12 +17,13 @@
         <ImageView
             android:id="@+id/background"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:contentDescription="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/sample" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/sample_yoshiko" />
 
         <View
             android:id="@+id/glass"

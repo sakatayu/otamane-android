@@ -1,20 +1,30 @@
 <resources>
-    <string name="app_name">NavigationSampleApp</string>
+    <string name="app_name">Otamane</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    // ToolbarMenu
-    <string name="calendar_menu_label_insert">追加</string>
+    <string name="common_menu_label_add">追加</string>
+    <string name="common_favorite">お気に入り</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancel</string>
 
     // ChooseProductMenu
-    <string name="choose_product_label_title">作品一覧</string>
-    <string name="choose_product_label_subtitle">登録するイベントの作品を選択してください</string>
+    <string name="choose_product_label_title">コンテンツ一覧</string>
     <string name="choose_product_label_sort">ソート</string>
     <string name="choose_product_label_twin">2列表示</string>
     <string name="choose_product_label_triple">3列表示</string>
     <string name="choose_product_label_favorite">お気に入り</string>
     <string name="choose_product_label_register_num">登録件数順</string>
 
+    //AddProduct
+    <string name="add_product_label_title">コンテンツ登録</string>
+    <string name="add_product_label_input_name">コンテンツ名登録</string>
+    <string name="add_product_label_input_name_sample">例：ラブライブ！</string>
+    <string name="add_product_label_input_image">コンテンツ画像登録</string>
+    <string name="add_product_label_input_image_select">画像を選択</string>
+
+    // EventRegistetr
+    <string name="event_register_lavel_title">イベント登録</string>
 
     // NavigationMenu
     <string name="main_manu_label_calendar">カレンダー</string>

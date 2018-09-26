@@ -14,5 +14,9 @@ data class ProductWork(
         val name: String,
         @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
         val image: ByteArray? = null,
-        val favorite: Boolean = false
-) : Parcelable
+        val favorite: Boolean? = false
+) : Parcelable {
+    companion object {
+        fun empty() = ProductWork(0, "")
+    }
+}

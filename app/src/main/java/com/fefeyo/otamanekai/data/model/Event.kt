@@ -9,7 +9,7 @@ data class Event(
         @PrimaryKey(autoGenerate = true)
         val id: Long = 1,
         val eventName: String,
-        val date: Date,
-        val eventType: EventType,
+        val date: Long,
+        val eventType: Int,
         val productId: Long
 )

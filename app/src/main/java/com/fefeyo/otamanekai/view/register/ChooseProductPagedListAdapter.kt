@@ -1,14 +1,15 @@
 package com.fefeyo.otamanekai.view.register
 
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.fefeyo.otamanekai.R
-import com.fefeyo.otamanekai.data.model.Event
 import com.fefeyo.otamanekai.data.model.ProductWork
 import com.fefeyo.otamanekai.databinding.ItemProductListBinding
 import com.fefeyo.otamanekai.util.click
 import com.fefeyo.otamanekai.util.load
+import com.fefeyo.otamanekai.util.loadForGrid
 import com.fefeyo.otamanekai.view.common.AbstractViewHolder
 
 class ChooseProductPagedListAdapter :
@@ -19,8 +20,9 @@ class ChooseProductPagedListAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder =
             ProductViewHolder(parent)
 
-    override fun onBindViewHolder(holder: ProductViewHolder, position: Int) =
-            holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
 
 
     inner class ProductViewHolder(parent: ViewGroup) :
@@ -28,7 +30,7 @@ class ChooseProductPagedListAdapter :
         fun bind(product: ProductWork?) {
             binding.product = product
             product?.image?.let {
-                binding.background.load(it)
+                binding.background.loadForGrid(it)
             }
             binding.root.click {
                 product?.let {

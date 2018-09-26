@@ -2,6 +2,7 @@ package com.fefeyo.otamanekai.view.register
 
 import android.content.Context
 import android.util.AttributeSet
+import android.widget.ImageView
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.RecyclerView
 import com.fefeyo.otamanekai.data.model.ProductWork

@@ -12,3 +12,10 @@ fun Int.toByteArray(context: Context) : ByteArray {
 
     return baos.toByteArray()
 }
+
+fun Bitmap.toByteArray() : ByteArray {
+    val baos = ByteArrayOutputStream()
+    compress(Bitmap.CompressFormat.PNG, 100, baos)
+
+    return baos.toByteArray()
+}

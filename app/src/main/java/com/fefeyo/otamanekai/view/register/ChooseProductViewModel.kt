@@ -1,24 +1,15 @@
 package com.fefeyo.otamanekai.view.register
 
 import android.app.Application
-import android.content.Context
-import androidx.lifecycle.*
-import com.fefeyo.otamanekai.data.api.PagingResource
-import com.fefeyo.otamanekai.data.model.ProductWork
-import com.fefeyo.otamanekai.data.repository.ChooseProductRepository
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import com.fefeyo.otamanekai.data.OtamaneDatabase
+import com.fefeyo.otamanekai.data.repository.RegisterRepository
 
 class ChooseProductViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository = ChooseProductRepository(application)
+    private val repository = RegisterRepository(OtamaneDatabase.getInstance(application))
     private val load = MutableLiveData<Boolean>()
-
-    private val pagingResource: LiveData<PagingResource<ProductWork>> =
-            Transformations.switchMap(load) {
-                repository.getProductList()
-            }
-
-    val productList = Transformations.switchMap(pagingResource) { it.data }
-    val networkStatus = Transformations.switchMap(pagingResource) { it.networkStatus }
-    val networkError = Transformations.switchMap(pagingResource) { it.error }
+    val productList = repository.getProductList()
 
     fun load() {
         load.value = true

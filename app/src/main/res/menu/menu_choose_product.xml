@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item android:id="@+id/sort"
         android:title="@string/choose_product_label_sort"
         app:showAsAction="ifRoom"
@@ -17,4 +18,10 @@
                 android:title="@string/choose_product_label_register_num"/>
         </menu>
     </item>
+
+    <item android:id="@+id/add"
+        android:title="@string/common_menu_label_add"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_add_white_24dp"/>
+
 </menu>

@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import com.fefeyo.otamanekai.MainActivity
 import com.fefeyo.otamanekai.R
 import com.fefeyo.otamanekai.databinding.FragmentChooseProductBinding
 
@@ -25,10 +26,7 @@ class ChooseProductFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        (activity as? AppCompatActivity)?.supportActionBar?.let {
-            it.title = getString(R.string.choose_product_label_title)
-            it.subtitle = getString(R.string.choose_product_label_subtitle)
-        }
+        (activity as? MainActivity)?.switchTitle(R.string.choose_product_label_title)
         setHasOptionsMenu(true)
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_choose_product, container, false)
@@ -53,7 +51,7 @@ class ChooseProductFragment : Fragment() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?) {
-        menu?.findItem(R.id.line)?.title = when(columnNum) {
+        menu?.findItem(R.id.line)?.title = when (columnNum) {
             TWIN_COLUMN -> getString(R.string.choose_product_label_triple)
             TRIPLE_COLUMN -> getString(R.string.choose_product_label_twin)
             else -> getString(R.string.choose_product_label_triple)
@@ -61,12 +59,11 @@ class ChooseProductFragment : Fragment() {
     }
 
 
-
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.line -> {
                 // 3列表示
-                columnNum = if(columnNum == TWIN_COLUMN) TRIPLE_COLUMN else TWIN_COLUMN
+                columnNum = if (columnNum == TWIN_COLUMN) TRIPLE_COLUMN else TWIN_COLUMN
                 binding.recycler.layoutManager = GridLayoutManager(context, columnNum)
             }
             R.id.favorite -> {
@@ -74,6 +71,10 @@ class ChooseProductFragment : Fragment() {
             }
             R.id.register_num -> {
                 // 登録件数順
+            }
+            R.id.add -> {
+                AddProductDialogFragment.newInstance()
+                        .show(childFragmentManager, AddProductDialogFragment.TAG)
             }
         }
         activity?.invalidateOptionsMenu()

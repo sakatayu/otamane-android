@@ -5,5 +5,5 @@
         android:id="@+id/insert"
         android:icon="@drawable/ic_add_white_24dp"
         app:showAsAction="ifRoom"
-        android:title="@string/calendar_menu_label_insert"/>
+        android:title="@string/common_menu_label_add"/>
 </menu>

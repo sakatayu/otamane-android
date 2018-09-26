@@ -2,10 +2,12 @@ package com.fefeyo.otamanekai.view.calendar
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.fefeyo.otamanekai.MainActivity
 import com.fefeyo.otamanekai.R
 import com.fefeyo.otamanekai.databinding.FragmentCalendarBinding
 import com.fefeyo.otamanekai.util.slideInUp
@@ -20,6 +22,9 @@ class CalendarFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
+        activity?.invalidateOptionsMenu()
+        (activity as? MainActivity)?.switchTitle(R.string.app_name)
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_calendar, container, false)
         binding.setLifecycleOwner(this)
         binding.calendar.setOnDateChangedListener { _, calendarDay, _ ->
@@ -34,6 +39,7 @@ class CalendarFragment : Fragment() {
             }
             flag = flag.not()
         }
+        Log.d("CalendarFragment", "onCreateView")
 
         return binding.root
     }
