@@ -14,14 +14,8 @@ import io.reactivex.schedulers.Schedulers
 
 class RegisterRepository(val database: OtamaneDatabase) {
 
-    fun getProductList() : LiveData<PagedList<ProductWork>> {
-        val factory = database.productWorkDao().findAll()
-        val pagedListConfig = PagedList.Config.Builder()
-                .setPageSize(OtamaneConfig.PAGE_SIZE)
-                .build()
-
-        return LivePagedListBuilder(factory, pagedListConfig).build()
-    }
+    fun getProductList() : LiveData<List<ProductWork>> =
+            database.productWorkDao().findAll()
 
     fun insertProduct(productWork: ProductWork) =
             Completable.fromAction {

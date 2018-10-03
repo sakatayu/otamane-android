@@ -17,6 +17,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            applicationIdSuffix = ".alpha"
+            versionNameSuffix = "a"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -33,20 +37,20 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-rc02'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
-    implementation 'androidx.browser:browser:1.0.0-rc02'
-    implementation 'androidx.cardview:cardview:1.0.0-rc02'
+    implementation 'androidx.browser:browser:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
     implementation 'androidx.core:core-ktx:1.0.0'
-    kapt "androidx.databinding:databinding-compiler:3.3.0-alpha11"
+    kapt "androidx.databinding:databinding-compiler:3.2.0"
 
     // ArchitectureComponents
-    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-rc01"
-    implementation 'androidx.room:room-runtime:2.0.0-rc01'
-    kapt 'androidx.room:room-compiler:2.0.0-rc01'
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+    implementation 'androidx.room:room-runtime:2.0.0'
+    kapt 'androidx.room:room-compiler:2.0.0'
     implementation "android.arch.persistence.room:rxjava2:2.0.0-rc01"
     implementation "android.arch.paging:runtime:2.0.0-rc01"
 
@@ -76,7 +80,7 @@ dependencies {
 
     // material
     implementation "com.google.android.material:material:$versions.material"
-    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha05'
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha06'
 
     // Calendar
     implementation 'com.github.prolificinteractive:material-calendarview:2.0.0'

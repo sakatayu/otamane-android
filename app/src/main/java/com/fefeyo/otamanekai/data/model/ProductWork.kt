@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "product_work")
 data class ProductWork(
         @PrimaryKey(autoGenerate = true)
-        val id: Long = 1,
+        val id: Long = 0,
         val name: String,
         @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
         val image: ByteArray? = null,

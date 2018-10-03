@@ -1,19 +1,18 @@
 package com.fefeyo.otamanekai.view.register
 
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.fefeyo.otamanekai.R
 import com.fefeyo.otamanekai.data.model.ProductWork
 import com.fefeyo.otamanekai.databinding.ItemProductListBinding
 import com.fefeyo.otamanekai.util.click
-import com.fefeyo.otamanekai.util.load
 import com.fefeyo.otamanekai.util.loadForGrid
 import com.fefeyo.otamanekai.view.common.AbstractViewHolder
 
-class ChooseProductPagedListAdapter :
-        PagedListAdapter<ProductWork, ChooseProductPagedListAdapter.ProductViewHolder>(ITEM_CALLBACK) {
+class ChooseProductListAdapter :
+        ListAdapter<ProductWork, ChooseProductListAdapter.ProductViewHolder>(ITEM_CALLBACK) {
 
     var onItemClick: (productWork: ProductWork) -> Unit = {}
 
@@ -27,15 +26,11 @@ class ChooseProductPagedListAdapter :
 
     inner class ProductViewHolder(parent: ViewGroup) :
             AbstractViewHolder<ItemProductListBinding>(parent, R.layout.item_product_list) {
-        fun bind(product: ProductWork?) {
+        fun bind(product: ProductWork) {
             binding.product = product
-            product?.image?.let {
-                binding.background.loadForGrid(it)
-            }
+            binding.background.loadForGrid(product.image)
             binding.root.click {
-                product?.let {
-                    onItemClick(product)
-                }
+                onItemClick(product)
             }
         }
     }
