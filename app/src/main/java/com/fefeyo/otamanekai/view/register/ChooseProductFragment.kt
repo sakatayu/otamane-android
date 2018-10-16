@@ -25,7 +25,10 @@ class ChooseProductFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        (activity as? MainActivity)?.switchTitle(R.string.choose_product_label_title)
+        (activity as? MainActivity)?.apply {
+            switchTitle(R.string.choose_product_label_title)
+            setUpNavigationBack(true)
+        }
         setHasOptionsMenu(true)
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_choose_product, container, false)
@@ -37,7 +40,6 @@ class ChooseProductFragment : Fragment() {
                             bundleOf(EventRegisterFragment.KEY_PRODUCT to it))
         }
 
-        viewModel.load()
         viewModel.productList.observe(this, Observer {
             binding.recycler.products = it
         })

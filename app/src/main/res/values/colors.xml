@@ -6,9 +6,16 @@
     <color name="colorAccent">#536DFE</color>
     <color name="yellow">#ffee33</color>
 
+    <color name="live">#f44336</color>
+    <color name="bd">#42A5F5</color>
+    <color name="broadcast">#4CAF50</color>
+    <color name="others">#795548</color>
+
     <color name="transparentBlack">#80000000</color>
     <color name="primaryText">#212121</color>
     <color name="secondaryText">#757575</color>
     <color name="divider">#BDBDBD</color>
     <color name="white">#FFFFFF</color>
+    <color name="light_gray">#ecf1f4</color>
+    <color name="transparent">#00000000</color>
 </resources>

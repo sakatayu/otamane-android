@@ -11,7 +11,12 @@
         <action
             android:id="@+id/action_mainFragment_to_chooseProductFragment"
             app:destination="@id/chooseProductFragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@+id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseProductFragment"
@@ -20,7 +25,11 @@
         <action
             android:id="@+id/action_chooseProductFragment_to_eventRegisterFragment"
             app:destination="@id/eventRegisterFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
             app:launchSingleTop="true"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
             app:popUpTo="@+id/chooseProductFragment" />
     </fragment>
     <fragment

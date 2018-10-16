@@ -10,12 +10,7 @@ import com.fefeyo.otamanekai.data.repository.RegisterRepository
 
 class ChooseProductViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = RegisterRepository(OtamaneDatabase.getInstance(application))
-    private val load = MutableLiveData<Boolean>()
     val productList: LiveData<List<ProductWork>> = repository.getProductList()
-
-    fun load() {
-        load.value = true
-    }
 
     fun insertProductWork(productWork: ProductWork) = repository.insertProduct(productWork)
 

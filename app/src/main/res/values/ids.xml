@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="fab_live" type="id"/>
+    <item name="fab_bd" type="id"/>
+    <item name="fab_broadcast" type="id"/>
+    <item name="fab_other" type="id"/>
+
+    <item name="yoyo_slidein" type="integer"/>
+    <item name="yoyo_slideout" type="integer"/>
+</resources>

@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--<item-->
+        <!--android:id="@+id/add"-->
+        <!--android:icon="@drawable/ic_add_white_24dp"-->
+        <!--android:title="@string/common_menu_label_add"-->
+        <!--app:showAsAction="ifRoom">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/live"-->
+                <!--android:title="@string/event_register_label_live"/>-->
+            <!--<item-->
+                <!--android:id="@+id/bd"-->
+                <!--android:title="@string/event_register_label_bd"/>-->
+            <!--<item-->
+                <!--android:id="@+id/broadcast"-->
+                <!--android:title="@string/event_register_label_broadcast"/>-->
+            <!--<item-->
+                <!--android:id="@+id/other"-->
+                <!--android:title="@string/event_register_label_other"/>-->
+        <!--</menu>-->
+    <!--</item>-->
     <item
-        android:id="@+id/add"
-        android:icon="@drawable/ic_add_white_24dp"
-        android:title="@string/common_menu_label_add"
-        app:showAsAction="ifRoom">
-        <menu>
-            <item
-                android:id="@+id/live"
-                android:title="@string/event_register_label_live"/>
-            <item
-                android:id="@+id/bd"
-                android:title="@string/event_register_label_bd"/>
-            <item
-                android:id="@+id/broadcast"
-                android:title="@string/event_register_label_broadcast"/>
-            <item
-                android:id="@+id/other"
-                android:title="@string/event_register_label_other"/>
-        </menu>
-    </item>
+        android:id="@+id/submit"
+        android:title="@string/event_register_label_submit"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_check_white_24dp"/>
 </menu>

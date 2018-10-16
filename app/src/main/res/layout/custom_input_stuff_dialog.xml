@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.fefeyo.otamanekai.view.common.InputStuffDialogFragment.InputStuffDialogViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/stuff_input_dialog_label_name"
+            android:inputType="text"
+            android:text="@={ viewmodel.name }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/stuff_input_dialog_label_price"
+            android:inputType="number"
+            android:text="@={ viewmodel.displayPrice }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/must"
+            style="@style/InputDialogItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="@={ viewmodel.isMust }"
+            android:text="@string/stuff_input_dialog_label_must"
+            android:textColor="@color/primaryText"
+            android:theme="@style/OtamaneCheckBox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/advance"
+            style="@style/InputDialogItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="@={ viewmodel.isAdvance }"
+            android:text="@string/stuff_input_dialog_label_advance"
+            android:textColor="@color/primaryText"
+            android:theme="@style/OtamaneCheckBox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/must" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/common_ok"
+            android:enabled="@{ viewmodel.submitAvailable() }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/advance" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

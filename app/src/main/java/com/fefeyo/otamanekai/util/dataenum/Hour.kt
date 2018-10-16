@@ -1,0 +1,28 @@
+package com.fefeyo.otamanekai.util.dataenum
+
+enum class Hour {
+    ONE,
+    TWO,
+    THREE,
+    FOUR,
+    FIVE,
+    SIX,
+    SEVEN,
+    EIGHT,
+    NINE,
+    TEN,
+    ELEVEN,
+    TWELVE,
+    THIRTEEN,
+    FOURTEEN,
+    FIFTEEN,
+    SIXTEEN,
+    SEVENTEEN,
+    EIGHTEEN,
+    NINETEEN,
+    TWENTY,
+    TWENTY_ONE,
+    TWENTY_TWO,
+    TWENTY_THREE,
+    TWENTY_FOUR,
+}

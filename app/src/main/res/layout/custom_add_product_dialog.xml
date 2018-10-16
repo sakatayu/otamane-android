@@ -31,15 +31,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            app:hintTextAppearance="@style/HintText"
+            app:boxStrokeColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_name_label">
+            app:layout_constraintTop_toBottomOf="@+id/input_name_label">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
+                android:textCursorDrawable="@drawable/edit_text_cursor_primary"
+                android:textColorHint="@color/colorPrimary"
                 android:hint="@string/add_product_label_input_name_sample"
                 android:text="@={ viewmodel.productName }" />
 
@@ -55,7 +60,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_name_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/input_name_layout" />
 
         <LinearLayout
             android:id="@+id/input_image_container"
@@ -66,7 +71,7 @@
             android:paddingBottom="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_image_label">
+            app:layout_constraintTop_toBottomOf="@+id/input_image_label">
 
             <ImageView
                 android:id="@+id/input_image"
@@ -84,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/add_product_label_input_image"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -101,19 +106,20 @@
             android:text="@string/common_favorite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_image_container" />
+            app:layout_constraintTop_toBottomOf="@+id/input_image_container" />
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submit"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="0dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:enabled="@{ viewmodel.isSaveAvailable }"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:enabled="@{ viewmodel.isSaveAvailable }"
             android:text="@string/common_ok"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_favorite" />
+            app:layout_constraintTop_toBottomOf="@+id/input_favorite" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

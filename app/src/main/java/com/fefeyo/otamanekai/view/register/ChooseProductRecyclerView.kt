@@ -13,6 +13,7 @@ class ChooseProductRecyclerView @JvmOverloads constructor(
     private val adapter = ChooseProductListAdapter()
     var onItemClick: (productWork: ProductWork) -> Unit = {}
         set(value) {
+            field = value
             adapter.onItemClick = value
         }
 

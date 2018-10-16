@@ -17,10 +17,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        debug {
-            applicationIdSuffix = ".alpha"
-            versionNameSuffix = "a"
-        }
+//        debug {
+//            applicationIdSuffix = ".alpha"
+//            versionNameSuffix = "a"
+//        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -91,4 +91,8 @@ dependencies {
 
     // Image Crop
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
+
+    // TimePicker
+    implementation 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
+
 }

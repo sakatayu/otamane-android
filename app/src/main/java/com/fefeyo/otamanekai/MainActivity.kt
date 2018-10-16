@@ -3,7 +3,14 @@ package com.fefeyo.otamanekai
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.fefeyo.otamanekai.databinding.ActivityMainBinding
+import com.fefeyo.otamanekai.util.load
+import com.fefeyo.otamanekai.view.common.LoadingDialogFragment
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,19 +22,37 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
     }
 
-    fun switchTitle(titleRes: Int, subTitleRes: Int = NO_SUBTITLE) {
+    fun switchTitle(titleRes: Int, subTitleRes: Int? = null) {
         supportActionBar?.apply {
             setTitle(titleRes)
-            if (subTitleRes != NO_SUBTITLE) {
+            subTitleRes?.let {
                 setSubtitle(subTitleRes)
-            } else {
+            } ?: run {
                 subtitle = null
             }
         }
     }
 
-    companion object {
-        const val NO_SUBTITLE = 0
+    fun switchTitle(title: String, subtitle: String? = null) {
+        supportActionBar?.apply {
+            setTitle(title)
+            subtitle?.let {
+                this.subtitle = subtitle
+            }
+        }
+    }
+
+    fun setUpNavigationBack(isShow: Boolean) {
+        if (isShow) {
+            binding.toolbar.apply {
+                setNavigationIcon(R.drawable.ic_arrow_back_white_24dp)
+                setNavigationOnClickListener {
+                    onBackPressed()
+                }
+            }
+        } else {
+            binding.toolbar.navigationIcon = null
+        }
     }
 
 }

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.fefeyo.otamanekai.view.register.EventRegisterDialogViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/close"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:src="@drawable/close"
+                app:layout_constraintBottom_toBottomOf="@+id/save"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/event_register_dialog_label_save"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/transparent"
+                android:hint="@string/event_register_dialog_label_name_hint"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:singleLine="true"
+                android:text="@={ viewmodel.eventName }"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textCursorDrawable="@drawable/edit_text_cursor_white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/close" />
+
+            <TextView
+                android:id="@+id/event_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{ viewmodel.displayEventType }"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/input_name"
+                tools:text="ライブ・ファンミーティング" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/date_input_layout"
+                    style="@style/InputDialogItem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        style="@style/PrimaryText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_today_black_36dp"
+                        android:gravity="center"
+                        android:text="@{ viewmodel.formatDate }"
+                        android:textSize="24sp"
+                        tools:text="2018年10月4日" />
+
+                    <TextView
+                        style="@style/SecondaryText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/event_register_dialog_label_change_date" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/is_all_day"
+                    style="@style/InputDialogItem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:checked="@={ viewmodel.isAllDay }"
+                    android:text="@string/event_register_dialog_label_all_day"
+                    android:textColor="@color/primaryText"
+                    android:theme="@style/OtamaneCheckBox"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/date_input_layout" />
+
+                <LinearLayout
+                    android:id="@+id/time_input_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/is_all_day">
+
+                    <LinearLayout
+                        android:id="@+id/opentime_input_layout"
+                        style="@style/InputDialogItem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/PrimaryText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/event_register_dialog_label_opentime" />
+
+                        <TextView
+                            style="@style/PrimaryText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/time"
+                            android:drawablePadding="16dp"
+                            android:gravity="center"
+                            android:text="@{ viewmodel.formatOpenTime }"
+                            android:textSize="24sp"
+                            tools:text="13:30" />
+
+                        <TextView
+                            style="@style/SecondaryText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@string/event_register_dialog_label_change_date" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/curtaintime_input_layout"
+                        style="@style/InputDialogItem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/PrimaryText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/event_register_dialog_label_curtaintime" />
+
+                        <TextView
+                            style="@style/PrimaryText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/time"
+                            android:drawablePadding="16dp"
+                            android:gravity="center"
+                            android:text="@{ viewmodel.formatCurtainTime }"
+                            android:textSize="24sp"
+                            tools:text="15:00" />
+
+                        <TextView
+                            style="@style/SecondaryText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@string/event_register_dialog_label_change_date" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/repeat_check"
+                    style="@style/InputDialogItem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:checked="@={ viewmodel.isRepeatEvent }"
+                    android:text="@string/event_register_dialog_label_repeat"
+                    android:textColor="@color/primaryText"
+                    android:theme="@style/OtamaneCheckBox"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/time_input_container" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/repeat_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/repeat_span"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/repeat_check" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/has_sale"
+                    style="@style/InputDialogItem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:checked="@={ viewmodel.hasSale }"
+                    android:text="@string/event_register_dialog_label_sale"
+                    android:textColor="@color/primaryText"
+                    android:theme="@style/OtamaneCheckBox"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/repeat_spinner" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
